@@ -34,7 +34,6 @@ TVA NUMBER(5)
 );
 CREATE TABLE catalogue(
 id NUMBER(3) PRIMARY KEY,
-nom VARCHAR2(100) NOT NULL,
 code_client NUMBER(5),
 ref VARCHAR(5),
 CONSTRAINT fk_codeclient1
