@@ -1,4 +1,4 @@
-/*on a remplit les tables selon les exemples donnés dans l'enonce de tp*/
+/*on a remplit les tables selon les exemples donnÃ©s dans l'enonce de tp*/
 /*TABLE commande*/
 INSERT INTO commande VALUES ('886','01/02/2019','oui','4329,00','5036,40');
 INSERT INTO commande VALUES ('887','02/02/2019','oui','4650,00','5026,40');
@@ -10,16 +10,16 @@ INSERT INTO client VALUES('2', 'ESSEGHIRI', 'Res Naoufal app 8,Maarif, Casablanc
 INSERT INTO client VALUES('3', 'HOUTY','Settat','karim@mail.com','20/11/2018','887');
 
 /*TABLE region*/
-INSERT INTO region VALUES('1','Tanger-Tétouan-Al Hoceïma','1');
-INSERT INTO region VALUES('2','Région d_Oriental','2');
-INSERT INTO region VALUES('3','Région de Fès-Meknès','3');
+INSERT INTO region VALUES('1','Tanger-TÃ©touan-Al HoceÃ¯ma','1');
+INSERT INTO region VALUES('2','RÃ©gion d_Oriental','2');
+INSERT INTO region VALUES('3','RÃ©gion de FÃ¨s-MeknÃ¨s','3');
 
 /*TABLE produit*/
-INSERT INTO produit VALUES ('A01','Barrette Memoire 2 Go','150','0,12');
-INSERT INTO produit VALUES ('A02','Barrette Memoire 4Go','240','0,12');
-INSERT INTO produit VALUES ('B15','Carte Graphique AMD Radeon RX 570 Pulse, 4Go','2349','0,2');
-INSERT INTO produit VALUES ('A11','Carte Son Asus Xonar DG','750','0,12');
-INSERT INTO produit VALUES ('C80','Disque Externe Toshiba usb 3.0 1000Go','546','0,33');
+INSERT INTO produit VALUES ('A01','Barrette Memoire 2 Go','150','12%');
+INSERT INTO produit VALUES ('A02','Barrette Memoire 4Go','240','12%');
+INSERT INTO produit VALUES ('B15','Carte Graphique AMD Radeon RX 570 Pulse, 4Go','2349','20%');
+INSERT INTO produit VALUES ('A11','Carte Son Asus Xonar DG','750','12%');
+INSERT INTO produit VALUES ('C80','Disque Externe Toshiba usb 3.0 1000Go','546','33%');
 
 /*TABLE categorie*/
 INSERT INTO categorie VALUES ('1','RAM','A01');
