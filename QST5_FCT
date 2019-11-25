@@ -1,0 +1,9 @@
+
+create or replace function Nbr_Cmd(client in client.client%type) return number is
+nbr NUMBER;
+begin
+SELECT COUNT(commande) into nbr FROM commande WHERE codeClient=client;
+   return nbr ;
+end;
+
+
