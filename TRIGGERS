@@ -1,0 +1,18 @@
+ALTER TABLE commande
+ADD date_livraison DATE;
+
+CREATE TABLE historique (
+   id number(20) PRIMARY KEY,
+   date_operation DATE,
+   type_operation VARCHAR2(15),
+    id_cmd VARCHAR2(20),
+    FOREIGN KEY (id_cmd) REFERENCES commande(commande_pk));
+    
+CREATE TRIGGER Livraison_commande AFTER INSERT or UPDATE on commande
+BEGIN
+If exists(SELECT * from inserted I, commande where I.commande_pk=commande.commande_pk and commande.date_jour>I.date_livraison);
+BEGIN 
+dbms_output.put_line('La date de livraison ne doit pas être inférieure à la date de commande  ');
+ROLLBACK;
+endif;
+END;
