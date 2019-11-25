@@ -1,0 +1,7 @@
+CREATE PROCEDURE ajouter_filiere(v_nomfil IN Filiere.nomfil%type) IS
+
+BEGIN
+
+	INSERT INTO Filiere(nomfil) VALUES(v_nomfil);
+
+END;

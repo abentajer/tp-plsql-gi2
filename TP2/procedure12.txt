@@ -1,0 +1,9 @@
+CREATE PROCEDURE electeur_candidat(v_idelec IN Electeurs.idelec%type) IS
+
+BEGIN
+
+	UPDATE Electeurs
+	SET cand = 0 , nvoix = 0
+	WHERE idelec = v_idelec;
+
+END;

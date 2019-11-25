@@ -1,0 +1,20 @@
+CREATE PROCEDURE trois_gagnants IS
+
+	v_nom Electeurs.nom%type ;
+	v_pnom Electeurs.pnom%type ;
+	v_nvoix Electeurs.nvoix%type ;
+	i NUMBER;
+
+BEGIN
+	i :=1;
+
+	SELECT nom ,pnom, nvoix
+	FROM Electeurs
+	ORDER BY nvoix
+
+	WHILE i<4 LOOP
+		FETCH sql into v_nom ,v_pnom ,v_nvoix ;
+		dbms_output.put_line(i || '-nom: '|| v_nom  || ' prenom: ' || v_pnom || 'nobre de vote : ' || v_nvoix);
+		i := i + 1 ;
+
+END;
