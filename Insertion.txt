@@ -1,0 +1,16 @@
+
+INSERT INTO Filiere VALUES (1,'GI');
+INSERT INTO Filiere VALUES (2,'GC');
+INSERT INTO Filiere VALUES (3,'GM');
+INSERT INTO Filiere VALUES (4,'GL');
+INSERT INTO Filiere VALUES (5,'GSTR');
+
+
+
+INSERT INTO Electeurs VALUES (1,'Ahlam', 'Motich','20-12-2012', 1 , 2 , 1 , 1);
+INSERT INTO Electeurs VALUES (2,'Hicham', 'Sbihi','20-7-2012', 1 , 2 , 1 , 1);
+INSERT INTO Electeurs VALUES (3,'Hasnae', 'Guissi','20-8-2012', 1 , 0, 0 , 1);
+INSERT INTO Electeurs VALUES (4,'mohammed', 'farih','2-5-2012', 1 , 0 , 0, 1);
+INSERT INTO Electeurs VALUES (5,'hossam', 'ghomri','16-7-2012', 1 , 0 , 0 , 1);
+INSERT INTO Electeurs VALUES (6,'raeid', 'hossam','6-5-2012', 1 , 1, 1 , 1);
+INSERT INTO Electeurs VALUES (7,'Hasnae', 'mofrih','30-8-2012',1 , 5 , 1 , 1);
