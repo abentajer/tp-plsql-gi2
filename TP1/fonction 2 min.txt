@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION MINClient
+RETURN varchar2 IS 
+   total varchar2(90);  
+BEGIN 
+   
+    SELECT nom INTO  total FROM ( SELECT SUM(commande.montant_ttc) AS somme , client.nom AS nom FROM commande , client
+    WHERE commande.code_commande = client.code_commande GROUP BY client.nom)ORDER BY somme asc FETCH NEXT 1 ROWS ONLY;
+    RETURN total; 
+END;

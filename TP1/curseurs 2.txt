@@ -1,0 +1,22 @@
+2DECLARE
+ c_ref produit.REF%TYPE;
+ c_ref commande.ref%TYPE;
+ c_codeClient client.CODE_CLIENT%TYPE;
+ c_codeClient commande.CODE_CLIENT%TYPE;
+ c_libelleproduit produit.LIBELLE%TYPE;
+ c_dateContact client.DATE_DE_CONTACT%TYPE;
+CURSOR c IS 
+	SELECT ref , libelle , date_de_Contact
+     FROM COMMANDE , produit,client
+	where dateContact BETWEEN '01/01/2018' AND '31/01/2018';
+    
+BEGIN
+	open c;
+	LOOP
+	FETCH c INTO c_ref,c_libelle,c_date_de_Contact;
+        EXIT WHEN c_produit %notfound;
+        dbms_output.put_line(c_ref || ' '|| c_libelle || '  ' ||  'a ete vendu ' ||' '|| 'fois entre la 01/01/2018 et 31/01/2018' );
+END LOOP;
+close c;
+end;
+/

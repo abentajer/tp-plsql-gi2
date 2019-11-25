@@ -1,0 +1,15 @@
+CREATE OR REPLACE PROCEDURE lancerCommande(
+	   p_Numdecommande IN commande.CODE_COMMANDE%TYPE,
+	   p_Datedecommande IN commande.DATE_COMMANDE%TYPE,
+	   p_Reglage IN commande.REGLAGE%TYPE,
+	   p_MONTHT IN commande.MONTANT_HT%TYPE,
+	   p_MONTTTC IN commande.MONTANT_TTC%TYPE)
+IS
+BEGIN
+
+  INSERT INTO commande ("CODE_COMMANDE", "DATE_COMMANDE", "REGLAGE", "MONTANT_HT", "MONTANT_TTC") 
+  VALUES (p_numdecommande,p_datedecommande,p_Reglage,p_montht, p_montttc);
+
+  COMMIT;
+
+END;
