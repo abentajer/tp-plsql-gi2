@@ -1,9 +1,8 @@
-/*une procédure pour permettre à des électeurs de devenir candidat*/
-CREATE OR REPLACE PROCEDURE candidat(
-	  c_cand IN tab_electeurCANDcand%type
+/*une procÃ©dure pour permettre Ã  des Ã©lecteurs de devenir candidat*/
+create or replace  PROCEDURE candidat(
+	  c_cand IN tab_electeur.CAND%type
 )
 IS
 BEGIN 
-
-	UPDATE tab_electeur SET c_cand := '1';
+	UPDATE tab_electeur SET CAND = '1' ;
 END;
