@@ -1,0 +1,15 @@
+CREATE OR REPLACE FUNCTION nombre_article(v_id_categorie NUMBER)
+RETURN NUMBER
+IS
+	
+BEGIN
+	SELECT ref
+	FROM catalogue
+	WHERE categorie = v_id_categorie;
+
+	IF sql%FOUND THEN
+		return sql%ROWCOUNT
+	ELSE
+		return 0
+	ENDIF;
+END;

@@ -1,0 +1,55 @@
+DECLARE
+	var_qte NUMBER;
+	var_nombre_des_produit_par_commande NUMBER;
+
+	TYPE str_prd
+	IS
+	RECORD (
+		s_ref catalogue.ref%TYPE,
+		s_pu catalogue.pu%TYPE,
+		s_tva catalogue.TVA%TYPE,
+		s_id_mc m_commande.TVA%TYPE);
+	
+	TYPE les_produits IS TABLE OF str_prd;
+
+
+PROCEDURE remises_commande(
+	v_emploiyee IN commande.emloiyee%type,
+	v_id_commande IN commande.id_commande%type,
+	v_reglet IN commande.reglet%type,
+	v_les_produits IN les_produits) IS
+
+BEGIN
+	-- modification de la table commande
+	UPDATE commande
+		SET
+			emloiyee = v_emploiyee,
+			date_commande = current_date,
+			regler = v_reglet
+		WHERE 
+			id_commande = v_id_commande ;
+
+
+	var_nombre_des_produit_par_commande = v_les_produits.count;
+	
+	-- modification de la table m_commande
+
+	FOR i in 1 .. var_nombre_des_produit_par_commande LOOP
+		
+		-- pour recuperer la quantite du produit dans chaque commande
+
+		SELECT qte FROM m_commande WHERE id_mc = v_les_produits(i)s_id_mc;
+		FETCH sql into var_qte;
+
+		UPDATE m_commande
+			SET
+				pu_HT = v_les_produits(i).s_pu,
+				prix_HT = var_qte * v_les_produits(i).s_pu,
+				prix_TTC = var_qte * v_les_produits(i).s_TVA);
+			WHERE
+				id_mc = v_les_produits(i)s_id_mc;
+	END LOOP;
+END;
+BEGIN
+	--pour tester
+END;

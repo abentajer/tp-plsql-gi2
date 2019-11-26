@@ -1,0 +1,61 @@
+DECLARE
+
+	var_id_commande NUMBER;
+	var_id_mc NUMBER;
+	var_nombre_des_produit_par_commande NUMBER;
+
+	TYPE str_prd
+	IS
+	RECORD (
+		s_ref catalogue.ref%TYPE,
+		s_pu catalogue.pu%TYPE,
+		s_tva catalogue.TVA%TYPE,
+		s_qte NUMBER );
+	
+	TYPE les_produits IS TABLE OF str_prd;
+
+
+PROCEDURE lancer_commande(
+	v_emploiyee IN commande.emloiyee%type,
+	v_code_client IN commande.code_client%type,
+	v_reglet IN commande.reglet%type,
+	v_les_produits IN les_produits) IS
+
+BEGIN
+	-- pour auto increment
+	SELECT MAX(id_commande) FROM commande;
+	
+	FETCH sql into var_id_commande;
+	var_id_commande := var_id_commande +1 ;
+
+
+	INSERT INTO TABLE commande VALUES(
+		var_id_commande,
+		current_date,
+		v_emploiyee,
+		v_code_client,
+		v_reglet);
+
+	-- pour auto increment
+	SELECT MAX(id_mc) FROM m_commande;
+
+	FETCH sql into var_id_mc;
+	var_id_mc := var_id_mc +1 ;
+
+
+	var_nombre_des_produit_par_commande = v_les_produits.count;
+
+	FOR i in 1 .. var_nombre_des_produit_par_commande LOOP
+		INSERT INTO m_commande VALUES(
+			var_id_mc,
+			v_les_produits(i).s_ref,
+			v_les_produits(i).s_qte,
+			var_id_commande,
+			v_les_produits(i).s_pu,
+			v_les_produits(i).s_qte * v_les_produits(i).s_pu,
+			v_les_produits(i).s_qte * v_les_produits(i).s_TVA);
+	END LOOP;
+END;
+BEGIN
+	--pour tester
+END;

@@ -1,0 +1,19 @@
+CREATE OR REPLACE FUNCTION affiche_commande_client(v_id_client NUMBER)
+RETURN NUMBER
+IS
+	counter NUMBER;
+BEGIN
+	counter := 0;
+	SELECT date_commande, emloiyee, regler
+	FROM commande
+	WHERE id_client = v_id_client;
+
+	IF sql%FOUND THEN
+		FOR n in sql LOOP
+			counter := counter +1;
+			dbms_output.put_line('numero de commande:'||sql.date_commande || 'emploiyee:' || sql.emloiyee || 'regler:' ||sql.regler)
+	ELSE
+		return 0
+	ENDIF;
+	return 1
+END;

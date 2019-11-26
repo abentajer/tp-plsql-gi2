@@ -1,0 +1,18 @@
+CREATE OR REPLACE FUNCTION CA_entreprise(v_produit NUMBER)
+RETURN m_commande.prix_TTC%type;
+IS
+	produit  m_commande.prix_TTC%type;
+	CA  m_commande.prix_TTC%type;
+BEGIN
+	CA := 0;
+	SELECT prix_TTC
+	FROM m_commande;
+
+	IF sql%FOUND THEN
+		FOR n in sql LOOP
+			FETCH sql into produit;
+			CA := CA + produit;
+		
+	ENDIF;
+	return CA;
+END;
