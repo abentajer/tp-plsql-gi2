@@ -1,0 +1,8 @@
+
+create or replace function Nbr_Categorie(cat in categorie.categorie%TYPE) return number is
+nbr NUMBER;
+begin
+SELECT COUNT(produit_pk) into nbr FROM produit WHERE categorie=cat;
+   return nbr ;
+end;
+
