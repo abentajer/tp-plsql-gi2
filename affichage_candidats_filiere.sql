@@ -3,18 +3,21 @@
 
 /*Exemple afficher la liste des candidats du filiere GI*/
 
+
+
 DECLARE
 	e_nom Electeurs.nom%type;
 	e_pnom Electeurs.pnom%type;
+	f_nomfil Filiere.nomfil%type;
 	Cursor ListeCandidat is
-		SELECT nom,pnom From Electeurs
-		WHERE Electeurs.idfl = Filiere.idfil and Filiere.nomfil = 'GI' and Electeurs.cand='1';
+		SELECT nom,pnom,nomfil From Electeurs, Filiere
+		WHERE Electeurs.idfl = Filiere.idfil and Filiere.nomfil = 'GI' and cand=1;
 BEGIN
 	OPEN ListeCandidat;
 	LOOP
-	FETCH ListCanditat into e_nom,e_pnom,f_nomfil;
+	FETCH ListeCandidat into e_nom,e_pnom,f_nomfil;
 		EXIT WHEN ListeCandidat%notfound;
-		dbms_output.put_line(e_nom||""||e_pnom);
+		dbms_output.put_line(e_nom||' '||e_pnom);
 	END LOOP;
-	CLOSE ListCandidat;
+	CLOSE ListeCandidat;
 END;
