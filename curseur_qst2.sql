@@ -1,4 +1,4 @@
-/* Phrase résumé : "Le produit ... (Référence:...) a été vendu X fois, d une quantité de Y pièces vendues.*/
+/* Phrase rï¿½sumï¿½ : "Le produit ... (Rï¿½fï¿½rence:...) a ï¿½tï¿½ vendu X fois, d une quantitï¿½ de Y piï¿½ces vendues."*/
 
 SET SERVEROUTPUT ON;
 
@@ -19,7 +19,7 @@ BEGIN
     	EXIT WHEN phrase_resume%NOTFOUND;
 	quantite := quantite+ligne.QTE_COMMANDE;
 	END LOOP;
-    	DBMS_OUTPUT.PUT_LINE('Le produit '||nom.LIBELLE_PRODUIT||' (Référence: '||ligne.REF_PRODUIT||') a été vendu '||phrase_resume%ROWCOUNT||' fois, d une quantité de '||quantite||' de pièces vendues.');
+    	DBMS_OUTPUT.PUT_LINE('Le produit '||nom.LIBELLE_PRODUIT||' (Rï¿½fï¿½rence: '||ligne.REF_PRODUIT||') a ï¿½tï¿½ vendu '||phrase_resume%ROWCOUNT||' fois, d une quantitï¿½ de '||quantite||' de piï¿½ces vendues.');
 	CLOSE phrase_resume;
     CLOSE nom_produit;
 END;
