@@ -1,73 +1,55 @@
 /* creation des tables */
 
-CREATE TABLE commande(
-code_commande NUMBER(5) PRIMARY KEY,
-date_commande VARCHAR2(100) NOT NULL,
-reglage VARCHAR(3),
-montant_HT NUMBER(8),
-montant_TTC NUMBER(8)
-);
-CREATE TABLE client(
-code_client NUMBER(5) PRIMARY KEY,
-nom VARCHAR2(100) NOT NULL,
-adresse VARCHAR2(100),
-email VARCHAR2(100),
-date_de_contact DATE ,
-code_commande NUMBER(5),
-CONSTRAINT fk_codecommande
-    FOREIGN KEY (code_commande)
-    REFERENCES commande(code_commande)
-);
-CREATE TABLE region(
-code_region NUMBER(5) PRIMARY KEY,
-libelle VARCHAR(100),
-code_client NUMBER(5),
-CONSTRAINT fk_codeclient
-    FOREIGN KEY (code_client)
-    REFERENCES client(code_client)
-);
-CREATE TABLE produit(
-ref VARCHAR(5) PRIMARY KEY,
-libelle VARCHAR2(100) NOT NULL,
-PU NUMBER(5),
-TVA NUMBER(5)
-);
-CREATE TABLE catalogue(
-id NUMBER(3) PRIMARY KEY,
-nom VARCHAR2(100) NOT NULL,
-code_client NUMBER(5),
-ref VARCHAR(5),
-CONSTRAINT fk_codeclient1
-    FOREIGN KEY (code_client)
-    REFERENCES client(code_client),
-CONSTRAINT fk_ref1
-    FOREIGN KEY (ref)
-    REFERENCES produit(ref)
-);
-CREATE TABLE concerne(
-quantite NUMBER(3),
-code_commande NUMBER(5),
-CONSTRAINT fk_codecommande1
-    FOREIGN KEY (code_commande)
-    REFERENCES commande(code_commande),
-ref VARCHAR(5),
-CONSTRAINT fk_ref2
-    FOREIGN KEY (ref)
-    REFERENCES produit(ref)
-);
-CREATE TABLE famille(
-code_famille NUMBER(5) PRIMARY KEY,
-libelle VARCHAR2(100) NOT NULL,
-ref VARCHAR(5),
-CONSTRAINT fk_ref4
-    FOREIGN KEY (ref)
-    REFERENCES produit(ref)
-);
-CREATE TABLE categorie(
-code_categorie NUMBER(5) PRIMARY KEY,
-libelle VARCHAR2(100) NOT NULL,
-ref VARCHAR(5),
-CONSTRAINT fk_ref3
-    FOREIGN KEY (ref)
-    REFERENCES produit(ref)
-);
+CREATE TABLE CLIENT(
+    Code_client NUMBER PRIMARY KEY,
+    Nom VARCHAR2(30) NOT NULL,
+    Adresse VARCHAR2(100) NOT NULL,
+    Email VARCHAR2(30) NOT NULL,
+    Date_Contact DATE NOT NULL,
+    Code_region NUMBER, 
+        FOREIGN KEY (Code_region) 
+        REFERENCES REGION(Code_region));
+
+CREATE TABLE REGION(
+    Code_region NUMBER PRIMARY KEY,
+    Libelle VARCHAR2(30) NOT NULL);
+
+CREATE TABLE COMMANDE(
+    Code_commande NUMBER PRIMARY KEY,
+    Date_commande DATE NOT NULL,
+    Reglage NUMBER,
+    Montant_HT NUMBER ,
+    Montant_TTC NUMBER ,
+    Code_Client NUMBER,
+        FOREIGN KEY (Code_client) 
+        REFERENCES CLIENT(Code_client));
+    
+CREATE TABLE CONTENIR(
+    Quantité NUMBER NOT NULL,
+    Ref VARCHAR2(20),
+    Code_commande NUMBER,
+         FOREIGN KEY (Code_commande) 
+         REFERENCES COMMANDE (Code_commande),
+    FOREIGN KEY(Ref ) 
+         REFERENCES PRODUIT(Ref ));
+    
+CREATE TABLE FAMILLE(
+    Code_famille NUMBER PRIMARY KEY,
+    Libelle VARCHAR2(30) NOT NULL);
+
+CREATE TABLE CATEGORIE(
+    Code_categorie NUMBER PRIMARY KEY,
+    Libelle VARCHAR2(100) NOT NULL);
+
+
+CREATE TABLE PRODUIT(
+    Ref VARCHAR2(20) PRIMARY KEY,
+    Libelle VARCHAR2(200) NOT NULL,
+    PU NUMBER NOT NULL,
+    TVA VARCHAR2(20) NOT NULL,
+    Code_famille NUMBER,
+    Code_categorie NUMBER,
+    FOREIGN KEY (Code_famille ) 
+         REFERENCES FAMILLE(Code_famille ),
+    FOREIGN KEY (Code_categorie) 
+         REFERENCES CATEGORIE(Code_categorie));
