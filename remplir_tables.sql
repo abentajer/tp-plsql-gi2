@@ -10,9 +10,9 @@ INSERT INTO CLIENT VALUES('2', 'ESSEGHIRI', 'Res Naoufal app 8,Maarif, Casablanc
 INSERT INTO CLIENT VALUES('3', 'HOUTY','Settat','karim@mail.com','20/11/2018','2');
 
 /*TABLE region*/
-INSERT INTO REGION VALUES('1','Tanger-Tétouan-Al Hoceïma');
-INSERT INTO REGION VALUES('2','Région d_Oriental');
-INSERT INTO REGION VALUES('3','Région de Fès-Meknès');
+INSERT INTO REGION VALUES(1,'Tanger-Tétouan-Al Hoceïma');
+INSERT INTO REGION VALUES(2,'Région d_Oriental');
+INSERT INTO REGION VALUES(3,'Région de Fès-Meknès');
 INSERT INTO REGION VALUES(4,'Région Rabat-Salé-Kénitra');
 INSERT INTO REGION VALUES(5,'Région Bni Mellal-Khénifra');
 INSERT INTO REGION VALUES(6,'Région de Casablanca-Settat');
