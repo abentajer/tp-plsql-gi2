@@ -20,7 +20,7 @@ CREATE TABLE COMMANDE(
     Reglage NUMBER,
     Montant_HT NUMBER ,
     Montant_TTC NUMBER ,
-    Code_Client NUMBER,
+    Code_client NUMBER,
         FOREIGN KEY (Code_client) 
         REFERENCES CLIENT(Code_client));
     
