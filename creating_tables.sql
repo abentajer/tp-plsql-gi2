@@ -4,7 +4,7 @@ CREATE TABLE CLIENT(
     Code_client NUMBER PRIMARY KEY,
     Nom VARCHAR2(30) NOT NULL,
     Adresse VARCHAR2(100) NOT NULL,
-    EmailVARCHAR2(30) NOT NULL,
+    Email VARCHAR2(30) NOT NULL,
     Date_Contact DATE NOT NULL,
     Code_region NUMBER, 
         FOREIGN KEY (Code_region) 
@@ -20,18 +20,18 @@ CREATE TABLE COMMANDE(
     Reglage NUMBER,
     Montant_HT NUMBER ,
     Montant_TTC NUMBER ,
-    Code_Client NUMBER,
+    Code_client NUMBER,
         FOREIGN KEY (Code_client) 
         REFERENCES CLIENT(Code_client));
     
 CREATE TABLE CONTENIR(
-    Quantité NUMBER NOT NULL,
+    QuantitÃ© NUMBER NOT NULL,
     Ref VARCHAR2(20),
-    Code_commande VARCHAR2(20),
+    Code_commande NUMBER(20),
          FOREIGN KEY (Code_commande) 
          REFERENCES COMMANDE(Code_commande),
-    FOREIGN KEY (Ref ) 
-         REFERENCES PRODUIT(Ref ));
+    FOREIGN KEY (Ref) 
+         REFERENCES PRODUIT(Ref));
     
 CREATE TABLE FAMILLE(
     Code_famille NUMBER PRIMARY KEY,

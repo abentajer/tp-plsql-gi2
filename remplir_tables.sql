@@ -1,20 +1,20 @@
-﻿/*on a remplit les tables selon les exemples donnés dans l'enonce de tp*/
+/*on a remplit les tables selon les exemples donnés dans l'enonce de tp*/
 /*TABLE commande*/
-INSERT INTO COMMANDE VALUES ('886','01/02/2019','oui','4329,00','5036,40',2,1);
-INSERT INTO COMMANDE VALUES ('887','02/02/2019','oui','4650,00','5026,40',1,1);
-INSERT INTO COMMANDE VALUES ('888','03/02/2019','oui','3256,00','5224,50',3,1);
+INSERT INTO COMMANDE VALUES ('886','01/02/2019','oui','4329,00','5036,40',2);
+INSERT INTO COMMANDE VALUES ('887','02/02/2019','oui','4650,00','5026,40',1);
+INSERT INTO COMMANDE VALUES ('888','03/02/2019','oui','3256,00','5224,50',3);
 
 /*TABLE client*/
-INSERT INTO CLIENT VALUES('1', 'BENTAJER', 'Mhanech II Tetouan','ahmed@mail.com','2/11/2019');
-INSERT INTO CLIENT VALUES('2', 'ESSEGHIRI', 'Res Naoufal app 8,Maarif, Casablanca','youssef@mail.com','27/10/2018');
-INSERT INTO CLIENT VALUES('3', 'HOUTY','Settat','karim@mail.com','20/11/2018');
+INSERT INTO CLIENT VALUES('1', 'BENTAJER', 'Mhanech II Tetouan','ahmed@mail.com','2/11/2019','1');
+INSERT INTO CLIENT VALUES('2', 'ESSEGHIRI', 'Res Naoufal app 8,Maarif, Casablanca','youssef@mail.com','27/10/2018','2');
+INSERT INTO CLIENT VALUES('3', 'HOUTY','Settat','karim@mail.com','20/11/2018','2');
 
 /*TABLE region*/
-INSERT INTO REGION VALUES('1','Tanger-Tétouan-Al Hoceïma');
-INSERT INTO REGION VALUES('2','Région d_Oriental');
-INSERT INTO REGION VALUES('3','Région de Fès-Meknès');
-INSERT INTO REGION VALUES(4,'Région de Rabat-Salé-Kénitra');
-INSERT INTO REGION VALUES(5,'Région de Bni Mellal-Khénifra');
+INSERT INTO REGION VALUES(1,'Tanger-Tétouan-Al Hoceïma');
+INSERT INTO REGION VALUES(2,'Région d_Oriental');
+INSERT INTO REGION VALUES(3,'Région de Fès-Meknès');
+INSERT INTO REGION VALUES(4,'Région Rabat-Salé-Kénitra');
+INSERT INTO REGION VALUES(5,'Région Bni Mellal-Khénifra');
 INSERT INTO REGION VALUES(6,'Région de Casablanca-Settat');
 INSERT INTO REGION VALUES(7,'Région de Marrakech-Safi');
 
@@ -36,7 +36,7 @@ INSERT INTO CATEGORIE VALUES ('5','CARTE GRAPHIQUE');
 INSERT INTO CONTENIR VALUES (10,'A01','886');
 INSERT INTO CONTENIR VALUES (2,'A02','886');
 INSERT INTO CONTENIR VALUES (1,'B15','886');
-INSERT INTO CONTENIR VALUES (20,'A01,'123');
+INSERT INTO CONTENIR VALUES (20,'A01','123');
 
 /*Table famille*/
 
